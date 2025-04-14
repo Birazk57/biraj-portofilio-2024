@@ -70,7 +70,7 @@
     </section>
     <section id="about">
         <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
+        <h1 class="title">About My Journey</h1>
         <div class="section-container">
           <div class="section__pic-container">
             <img
@@ -315,79 +315,76 @@
         />
       </section>
       <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Works and Projects</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/Corelation .png"
-                  alt="Corelation."
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Energy Consumption and Range Detection</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://iopscience.iop.org/article/10.1088/1755-1315/1385/1/012024/'"
-                >
-                  Read More...
-                </button>  
-                <!-- to create more buttons just copy and paste this command -->
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/Crash Analysis.png"
-                  alt="Crash Analysis"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Vehicle Crash Analysis</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
-                >
-                  Read More...
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/Project 1.png"
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Vehicle Range Calculator Web App</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
-                >
-                  Read More...
-                </button>
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
+        <!-- Projects Section Header -->
+    <p class="section__text__p1">Browse My Recent</p>
+    <h1 class="title">Works and Projects</h1>
+    
+    <!-- Projects Overview Grid -->
+    <div class="experience-details-container">
+      <div class="about-containers">
+      
+        <!-- Project Card 1: Energy Consumption & Range Detection -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./assets/Corelation .png" alt="Corelation" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Energy Consumption & Range Detection</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" 
+              onclick="window.open('https://iopscience.iop.org/article/10.1088/1755-1315/1385/1/012024')">
+              Read More...
+            </button>
           </div>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
+        
+        <!-- Project Card 2: Vehicle Crash Analysis -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./assets/Crash Analysis.png" alt="Crash Analysis" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Vehicle Frontal Crash Analysis</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="window.open('./projects/crash_analysis.html', '_blank')">
+              Read More...
+            </button>
+          </div>
+        </div>
+        
+        <!-- Project Card 3: Vehicle Range Calculator Web App -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./assets/Project 1.png" alt="Range Calculator" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Vehicle Range Calculator Web App</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="window.open('./projects/range_calculator.html', '_blank')">
+              Read More...
+            </button>
+          </div>
+        </div>
+      
+        
+       <!-- Project Card 5: IC to Electric Conversion -->
+       <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/typical ev architecture.jpg" alt="IC to Electric Conversion" class="project-img">
+        </div>
+        <h2 class="project-title">IC to Electric Conversion</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="window.open('./projects/ic_to_electric.html', '_blank')">
+            Read More...</button>
+        </div>
+      </div>
+
+     
+
+      </div>
+    </div>
+    
+    <!-- Arrow Icon -->
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
       </section>
       <section id="contact">
         <p class="section__text__p1">Get in Touch</p>
