@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Interactive Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+  <style>
+    :root {
+      --primary: #333;
+      --accent: #fff;
+      --bg-overlay: rgba(255,255,255,0.85);
+      --shadow: rgba(0,0,0,0.1);
+      --gutter: 16px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url('assets/golden.jpg') no-repeat center/cover;
+      background-attachment: fixed;
+      color: var(--primary);
+      overflow-x: hidden;
+    }
+    #gallery {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    #gallery h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .filter-buttons { margin-bottom: 2rem; }
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      font-weight: 600;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    .gallery-container {
+      /* Masonry container will be positioned by Masonry.js */
+      position: relative;
+    }
+    .gallery-item {
+      width: calc(33.333% - var(--gutter));
+      margin-bottom: var(--gutter);
+      background: var(--bg-overlay);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    @media (max-width: 900px) {
+      .gallery-item { width: calc(50% - var(--gutter)); }
+    }
+    @media (max-width: 600px) {
+      .gallery-item { width: 100%; }
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+    .gallery-item img {
+      width: 100%; display: block; cursor: pointer;
+      transition: filter 0.5s;
+    }
+    .gallery-item img:hover { filter: grayscale(0%); }
+    .caption {
+      padding: 1rem; text-align: left;
+    }
+    .caption h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .caption p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    #lightbox {
+      position: fixed; top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%; max-height: 85vh;
+      border-radius:4px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: #aaa;
+      padding: 20px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #929699;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background-color: #000; }
+
+
+  </style>
+</head>
+<body>
+  <section id="gallery">
+    <h2>Welcome to my collections</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="3d">3D Models</button>
+      <button class="filter-btn" data-filter="photo">Photography</button>
+    </div>
+    <div class="gallery-container"></div>
+  </section>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview">
+  </div>
+
+  <!-- Dependencies for Masonry -->
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script>
+    // Gallery Data
+    const itemsData = [
+      { src: 'gallery/Gear_box_design.png', category: '3d', title: 'Gear Box Design', desc: '' },
+      { src: 'gallery/1967 shelby.png', category: '3d', title: '1967 Shelby', desc: 'Aerodynamic concept design.' },
+      { src: 'gallery/Sword_Stone_Bg.png', category: '3d', title: 'Sword', desc: 'Made with Blender.' },
+      { src: 'gallery/Wall_E.PNG', category: '3d', title: 'Wall-E', desc: 'Maybe the last life on Earth.' },
+      { src: 'gallery/Rendered Robot 1.4.jpg', category: '3d', title: 'The Tin Man', desc: 'Searching for Existence.' },
+      { src: 'gallery/Mintendo Model.png', category: '3d', title: 'Nintendo', desc: '' },
+      { src: 'gallery/Flag_Pole Mount.png', category: '3d', title: 'Flag Pole Mount', desc: '' },
+      { src: 'gallery/Robotic arm.png', category: '3d', title: 'Robotic Arm', desc: '' },
+      { src: 'gallery/HeadPhoone.png', category: '3d', title: 'HeadPhone Concept Design', desc: '' },
+    ];
+    const container = document.querySelector('.gallery-container');
+    itemsData.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.dataset.category = item.category;
+      div.innerHTML = `
+        <img src="${item.src}" alt="${item.title}" onclick="openLightbox('${item.src}')">
+        <div class="caption">
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+
+    // Initialize Masonry after images load
+    let msnry;
+    imagesLoaded(container, () => {
+      msnry = new Masonry(container, {
+        itemSelector: '.gallery-item',
+        columnWidth: '.gallery-item',
+        percentPosition: true,
+        gutter: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gutter'))
+      });
+    });
+
+    // Filter Functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+        });
+        if (msnry) msnry.layout();
+      });
+    });
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+<div style="text-align: center; margin: 60px 0 40px;">
+    <button class="btn btn-color-2" onclick="window.location.href='/index.html'">⬅ Back to Home</button>
+  </div>
+  
+  <footer>
+    © 2023 Biraj Kharel. All rights reserved.
+  </footer>
+
+</body>
+</html>

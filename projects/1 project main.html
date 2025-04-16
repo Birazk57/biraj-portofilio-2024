@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biraj Kharel | Projects & Works</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 { font-size: 2.7rem; font-weight: 600; }
+    .filters {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    select {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: white;
+    }
+    .experience-details-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .details-container {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .details-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+    }
+    .article-container img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 16px;
+    }
+    .btn-container {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .btn {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #929699;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background-color: #000; }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: #aaa;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💡 From Idea to Impact</h1>
+  <p style="color:#666;">🤯 Powered by Curiosity</p>
+</header>
+
+<!-- Filters -->
+<div class="filters">
+  <select id="filterType">
+    <option value="">Default</option>
+    <option value="simulation">Engineering Simulation</option>
+    <option value="data analysis">Data Analytics</option>
+  </select>
+</div>
+
+<!-- Projects Overview Grid -->
+<section class="experience-details-container" id="projectGrid">
+  <!-- Project 1 -->
+  <div class="details-container" data-type="data analysis">
+    <div class="article-container">
+      <img src="../assets/Corelation .png" alt="Energy Consumption & Range Detection">
+    </div>
+    <h2 class="project-title">Energy Consumption & Range Detection</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('https://iopscience.iop.org/article/10.1088/1755-1315/1385/1/012024')">Read More...</button>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="details-container" data-type="simulation">
+    <div class="article-container">
+      <img src="../assets/Crash Analysis.png" alt="Vehicle Crash Analysis">
+    </div>
+    <h2 class="project-title">Vehicle Frontal Crash Analysis</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('./crash_analysis.html', '_blank')">Read More...</button>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="details-container" data-type="data analysis">
+    <div class="article-container">
+      <img src="../assets/Project 1.png" alt="Vehicle Range Calculator">
+    </div>
+    <h2 class="project-title">Vehicle Range Calculator Web App</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('./range_calculator.html', '_blank')">Read More...</button>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="details-container" data-type="simulation">
+    <div class="article-container">
+      <img src="../assets/typical ev architecture.jpg" alt="EV Conversion project">
+    </div>
+    <h2 class="project-title">EV Conversion project</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('../projects/ic_to_electric.html', '_blank')">Read More...</button>
+    </div>
+  </div>
+
+  <!-- Project 5 -->
+  <div class="details-container" data-type="simulation">
+    <div class="article-container">
+      <img src="../assets/Battery_Thermal_Management_Figure1--550x392.jpg" alt="Battery Thermal Management">
+    </div>
+    <h2 class="project-title">Battery Thermal Management Simulation</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('../projects/battery_thermal_management.html', '_blank')">Read More...</button>
+    </div>
+  </div>
+
+  <!-- Project 6 -->
+  <div class="details-container" data-type="simulation">
+    <div class="article-container">
+      <img src="../assets/Chassis.png" alt="Chassis Analysis">
+    </div>
+    <h2 class="project-title">Structural Analysis on Chassis</h2>
+    <div class="btn-container">
+      <button class="btn" onclick="window.open('../projects/chassis_analysis.html', '_blank')">Read More...</button>
+    </div>
+  </div>
+</section>
+
+<div style="text-align: center; margin: 60px 0 40px;">
+  <button class="btn btn-color-2" onclick="window.location.href='/index.html'">⬅ Back to Home</button>
+</div>
+
+<footer>
+  © 2023 Biraj Kharel. All rights reserved.
+</footer>
+
+<script> 
+  // Get the filter dropdown and project cards
+  const filterType = document.getElementById("filterType");
+  const cards = document.querySelectorAll(".details-container");
+
+  // Add event listener to the filter
+  filterType.addEventListener("change", function() {
+    const selected = this.value;
+
+    // Loop through all the cards and display/hide based on the selected value
+    cards.forEach(card => {
+      const type = card.getAttribute("data-type");
+
+      if (!selected || type === selected) {
+        card.style.display = "flex";  // or "block" depending on your layout
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

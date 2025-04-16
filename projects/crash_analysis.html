@@ -1,0 +1,137 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Advanced Vehicle Crash Analysis Using FEM</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    h2 { font-size: 28px; margin-top: 30px; color: #444; }
+    h3 { font-size: 22px; margin-top: 25px; color: #555; }
+    p, li { font-size: 16px; text-align: justify; margin-bottom: 15px; }
+    ul { margin-left: 20px; margin-bottom: 20px; }
+    .section { margin-bottom: 40px; }
+    .visual { margin: 20px 0; padding: 15px; background: #fff; border: 1px solid #ccc; border-radius: 10px; }
+    .visual img { width: 100%; border-radius: 8px; }
+    .external-link { display: inline-block; margin-top: 20px; background: #222; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; transition: background 0.3s ease; }
+    .external-link:hover { background: #444; }
+    footer { text-align: center; font-size: 14px; color: #777; margin-top: 50px; }
+
+    .cover {
+      display: block;
+      margin: 0 auto;
+      width: 50%; /* Adjust as needed */
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Vehicle Crash Analysis Using FEM</h1>
+    <p class="project-meta">
+      Location: Nepal | Duration: 2023<br>
+      Tools: ANSYS Workbench, Fusion 360, LS-DYNA (Explicit Dynamics)
+    </p>
+
+    <!-- Centered Image Here -->
+    <img src="../assets/accidents-by-vehicle-type.webp" alt="Vehicle Crash Analysis Simulation" class="cover">
+    
+    <h2>Overview</h2>
+    <p>
+      This project uses high-fidelity Finite Element Method (FEM) simulations to investigate vehicle crash behavior in frontal and side-impact scenarios. By leveraging advanced nonlinear dynamic simulation techniques and state-of-the-art material models, the study examines structural integrity, energy absorption mechanisms in crumple zones, and progressive damage that occurs during collisions.
+    </p>
+
+    <h2>Design, Modeling, and Preprocessing</h2>
+    <p>
+      The vehicle chassis is meticulously designed in SolidWorks with emphasis on modularity, material heterogeneity, and realistic geometry. The CAD model is then imported into ANSYS Workbench, where a comprehensive meshing process is carried out using a combination of hexahedral and tetrahedral elements. A detailed convergence study ensures the model’s fidelity. Advanced mesh sensitivity and dynamic substructuring methods (such as component mode synthesis) have been implemented to optimize computational cost while maintaining high accuracy.
+    </p>
+
+    <h2>Advanced Simulation Setup</h2>
+    <p>
+      The simulation utilizes explicit dynamic analysis, as implemented in LS‑DYNA, to capture transient and highly nonlinear dynamic events typical of crash scenarios. The solver uses an explicit time integration method subject to the Courant-Friedrichs-Lewy condition to guarantee numerical stability. Key simulation details include:
+    </p>
+    <ul>
+      <li><strong>Crash Velocity:</strong> 50 km/h – 90 km/h to simulate both moderate and severe impact conditions.</li>
+      <li><strong>Material Models:</strong> Advanced constitutive models for mild steel and high-strength alloys, incorporating strain rate dependency and temperature effects.</li>
+      <li><strong>Contact Algorithms:</strong> Automated surface-to-surface contact with friction, augmented by advanced erosion techniques to simulate progressive failure.</li>
+      <li><strong>Damage Modeling:</strong> The GISSMO damage model is integrated to predict crack initiation and propagation, allowing for realistic simulation of material fracture and crumple behavior.</li>
+    </ul>
+
+    <h2>Advanced Nonlinear Dynamics & Material Modeling</h2>
+    <p>
+      In the realm of crash simulation, capturing nonlinear material behavior is crucial. This project integrates cutting-edge material modeling techniques:
+    </p>
+    <ul>
+      <li><strong>Strain-Rate Sensitive Models:</strong> To account for dynamic loading conditions, material models are calibrated with high-speed experimental data.</li>
+      <li><strong>Damage & Fracture Prediction:</strong> Advanced damage models (e.g., GISSMO) are used to simulate crack evolution, providing insights into progressive collapse and energy dissipation mechanisms.</li>
+      <li><strong>Hybrid Material Definitions:</strong> Combining experimental tensile test data with digital image correlation (DIC) measurements refines the predictive accuracy for fracture toughness and post-yield behavior.</li>
+    </ul>
+
+    <h2>Dynamic Substructuring & Computational Efficiency</h2>
+    <p>
+      To address the immense computational demand of full-vehicle crash simulations, dynamic substructuring (via methods like the Craig-Bampton technique) is employed. This approach allows us to reduce the system's degrees of freedom by partitioning the vehicle into interconnected substructures. In doing so, the simulation delivers both high accuracy in critical regions (such as crumple zones) and reduced total computational time.
+    </p>
+
+    <h2>Integration of Machine Learning & Optimization Techniques</h2>
+    <p>
+      In order to accelerate the design cycle, modern methods such as machine learning-based surrogate modeling and reinforcement learning optimizers are integrated with the FEM simulation workflow. These techniques:
+    </p>
+    <ul>
+      <li>Rapidly predict crashworthiness performance metrics (e.g., maximum intrusion and energy absorption) with relative errors under 1%.</li>
+      <li>Enable iterative design optimizations by inversely correlating design parameters (such as side-sill geometry or battery enclosure thickness) with simulation outputs.</li>
+      <li>Reduce reliance on extensive physical crash testing, thereby saving time and resources while still ensuring compliance with safety standards.</li>
+    </ul>
+
+    <h2>Validation & Industry Impact</h2>
+    <p>
+      Extensive validation is performed by comparing simulation outcomes with experimental crash test results and NCAP-type data. High-speed video and 3D digital image correlation (3D-DIC) are used during physical testing to capture the real-time evolution of deformations and to calibrate the simulation models. The refined models not only confirm the crashworthiness of current designs but also provide a pathway for iterative improvements leading to enhanced occupant safety.
+    </p>
+    
+    <div class="visual">
+      <h3>Simulation Output: Deformation & Stress Map</h3>
+      <img src="../assets/Equivalent stress.png" alt="Crumple Zone Simulation Output">
+      <p>
+        The output displays the deformation and von Mises stress distribution in the chassis during impact. Note the high-stress concentrations in the longitudinal rails and energy absorption in the crumple zones.
+      </p>
+    </div>
+    
+    <h2>Outcomes & Future Directions</h2>
+    <p>
+      The advanced crash analysis provided substantial insights into the structural redesign for improved safety. Key outcomes include:
+    </p>
+    <ul>
+      <li>Validation of the chassis design with a 70% energy absorption rate in critical crumple zones.</li>
+      <li>An 18% reduction in peak stress achieved by optimizing cross-member configurations and integrating hybrid materials.</li>
+      <li>Identification of potential design modifications through surrogate model optimization, paving the way for next-generation vehicle safety systems.</li>
+    </ul>
+    <p>
+      Future work will focus on further integrating sensor-based feedback (using MADYMO and PAM-Crash for occupant modeling) and real-time dynamic substructuring to further decrease simulation turnaround times and improve design robustness.
+    </p>
+    
+    <a class="external-link" href="../index.html" target="_blank">Back to the main page</a>
+    
+    <footer>
+      &copy; 2025 Advanced Crash Analysis Project. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>

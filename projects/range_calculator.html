@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Range Calculator Web App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0; padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .cover {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 36px; margin-bottom: 10px; color: #222; }
+    .project-meta { font-size: 14px; color: #777; margin-bottom: 30px; }
+    h2 { font-size: 24px; margin-top: 30px; color: #444; }
+    p { font-size: 16px; text-align: justify; margin-bottom: 20px; }
+    ul { margin-left: 20px; margin-bottom: 20px; }
+    .visual { margin: 20px 0; padding: 15px; background: #fff; border: 1px solid #ccc; border-radius: 10px; }
+    .visual img { width: 100%; border-radius: 8px; }
+    .external-link { display: inline-block; margin-top: 20px; background: #222; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; transition: background 0.3s ease; }
+    .external-link:hover { background: #444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vehicle Range Calculator Web App</h1>
+    <p class="project-meta">
+      Tools: HTML, CSS, JavaScript, Python (optional backend) | Year: 2024<br>
+      Function: Calculate EV range based on energy consumption, terrain, and vehicle parameters.
+    </p>
+    <img src="../assets/Project 1.png" alt="Range Calculator Web App" class="cover">
+    
+    <h2>Overview</h2>
+    <p>
+      This web application estimates the driving range of electric vehicles based on input parameters such as battery capacity, motor efficiency, vehicle weight, and terrain profile. It is designed as a lightweight, user-friendly tool that provides instant estimations.
+    </p>
+    
+    <h2>Development Process</h2>
+    <p>
+      The frontend was built using HTML, CSS, and JavaScript to create an interactive user interface. A backend model (implemented in Python) processes vehicle data, running calculations based on standard EV performance curves. User inputs are validated and dynamic range estimates are generated.
+    </p>
+    
+    <h2>Key Features & Results</h2>
+    <ul>
+      <li>Dynamic range estimation based on multiple user inputs.</li>
+      <li>Calculates energy consumption (Wh/km or Wh/mile) based on vehicle specs and driving conditions. </li>
+      <li>Visualizes energy losses from aerodynamics, rolling resistance, and terrain. </li>
+      <li>Helps optimize your driving habits to maximize efficiency and range </li>
+    </ul>
+    
+    <div class="visual">
+      <h3>Sample UI Screenshot</h3>
+      <img src="../assets/Calculator Website.png" alt="Range Calculator UI">
+    </div>
+    
+    <h2>Impact</h2>
+    <p>
+      This web app provides valuable insights for electric vehicle owners and researchers by enabling route planning and energy management optimization. It also serves as a proof-of-concept for integrating predictive energy models into consumer-facing applications.
+    </p>
+    
+    <a class="external-link" href="../projects.html" target="_blank">Back to Projects</a>
+  </div>
+</body>
+</html>

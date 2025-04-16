@@ -1,28 +1,40 @@
 /* GENERAL */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"); */
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.header{
+  min-height: 100vh;
+  width: 100%;
+  
+  position: relative;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
+    --color1: #FFF ;
+    --color2: #181818 ;
+    /* background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(./assets/Landscape-Sunset-Digital-Art.jpg); */
+    background-position: center;
+    background-size:cover ;
 }
 
 html {
     scroll-behavior: smooth;
 }
-  
+
 p {
-    color: rgb(85, 85, 85);
+    color: rgb(0, 0, 0);
 }
-  
-  /* TRANSITION */
-  
+
+/* TRANSITION */
+
 a,
-  .btn {
+.btn {
     transition: all 300ms ease;
 }
 
@@ -31,45 +43,146 @@ a,
 nav,
 .nav-links {
   display: flex;
+  gap: 2rem
 }
 
 nav {
-    justify-content: space-around;
-    align-items: center;
-    height: 17vh;
-  }
-
-.nav-links {
-    gap: 2rem;
-    list-style: none;
-    font-size: 1.5rem;
+  background-color: #e7eeee;
+  color: #000000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border-bottom: 10px solid #ddd;  */ 
+  /* The above is used to inster border on the bottom of the nav pannel */
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 400;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #000000;
+}
+
+/* Parent list item for Dropdown */
+.dropdown-parent {
+  position: relative;
+}
+
+/* Base styling for dropdown */
+.drop-down {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+/* Show dropdown on hover */
+.nav-links > li:hover .drop-down {
+  display: block;
+}
+
+/* Dropdown item styles */
+.drop-down li {
+  width: 100%;
+}
+
+/* Link styling */
+.drop-down li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+/* Hover effect for links */
+.drop-down li a:hover {
+  background-color: #f0f0f0;
+  color: #000000;
+  padding-left: 24px;
+  border-left: 3px solid #6b6e70;
+}
+
+/* Responsive: Stack dropdowns nicely on small screens */
+@media (max-width: 768px) {
+  .drop-down {
+    position: static;
+    box-shadow: none;
+    min-width: 100%;
+    background: transparent;
+  }
+
+  .drop-down li a {
+    padding: 10px 15px;
+    border-left: none;
+    font-size: 16px;
+  }
+
+  .nav-links > li:hover .drop-down {
+    display: block;
+    margin: 0;
+  }
+}
+
+
 a {
-    color: black;
+    color: rgb(190, 182, 182);
     text-decoration: none;
     text-decoration-color: white;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
     text-decoration-color: rgb(181, 181, 181);
-  }
+}
 
-  .logo {
+.logo {
     font-size: 2rem;
-  }
-  
-  .logo:hover {
+}
+
+.logo:hover {
     cursor: default;
-  }
-  
+}
+
+
 /* HAMBURGER MENU */
 
 #hamburger-nav {
   display: none;
+  background: white;
+  border-bottom: 1px solid #ccc;
 }
 
 .hamburger-menu {
@@ -84,13 +197,14 @@ a {
   height: 24px;
   width: 30px;
   cursor: pointer;
+  gap: 5px;
 }
 
 .hamburger-icon span {
   width: 100%;
   height: 2px;
   background-color: black;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links {
@@ -108,7 +222,7 @@ a {
   display: block;
   padding: 10px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: black;
   text-decoration: none;
   transition: all 0.3 ease-in-out;
@@ -145,6 +259,8 @@ a {
 .hamburger-icon span:first-child {
   transform: none;
 }
+
+
 
 /* SECTIONS */
 
@@ -296,7 +412,7 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: rgb(205, 203, 207);
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -314,7 +430,15 @@ section {
   margin: auto 0;
 }
 
-/* Skills SECTION */
+.container {
+  display: flex;
+  font-size: 14px;
+  height: 100vh;
+  background: #d8d8d8;
+}
+
+
+/* SKILLS SECTION */
 
 #experience {
   position: relative;
@@ -359,7 +483,7 @@ article .icon {
   bottom: 2.5rem;
 }
 
-/* Experience Cards Container */
+/* EXPERIENCE CARDS CONTAINER */
 /* Basic Reset */
 * {
   margin: 0;
@@ -450,7 +574,7 @@ body {
   line-height: 1.6;
 }
 
-/* Responsive */
+/* Responsive Timeline */
 @media (max-width: 768px) {
   .timeline {
     border-left: none;
@@ -465,31 +589,18 @@ body {
 }
 
 
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
-}
-
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-.project-title {
-  margin: 1rem;
-  color: black;
-}
-
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+/* Responsive adjustments for Projects */
+@media (max-width: 768px) {
+  #projects {
+    padding: 40px 10px;
+  }
+  .project-title {
+    font-size: 1.1rem;
+  }
+  .project-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
 
 /* CONTACT */
@@ -541,4 +652,24 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+/* NEW: Project Tags Styling */
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.tag {
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
